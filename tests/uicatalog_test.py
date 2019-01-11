@@ -48,6 +48,16 @@ class UiCatalog(BaseTest):
         actual = driver.find_element_by_name("CUSTOM").get_attribute(name='name')
         self.assertEqual("CUSTOM", actual)
 
+    def test_picker_wheel(self):
+        driver = self.driver
+
+        driver.find_element_by_accessibility_id("Picker View").click()
+        driver.find_element_by_name("Red color component value").send_keys("0")
+        driver.find_elements_by_class_name("XCUIElementTypePickerWheel").pop(1).send_keys("255")
+        driver.find_element_by_xpath("//*[@name='Blue color component value']").send_keys("45")
+
+
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(UiCatalog)

@@ -1,7 +1,6 @@
 import unittest
 import os
 from appium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BaseTest(unittest.TestCase):
