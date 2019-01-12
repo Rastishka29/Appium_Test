@@ -27,8 +27,10 @@ class SafariTest(unittest.TestCase):
         wait = WebDriverWait(driver, 10)
 
         driver.get("https://gmail.com")
-        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "body > nav > div > a.gmail-nav__nav-link.gmail-nav__nav-link__sign-in"))).click()
-        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#identifierId"))).send_keys("test_user2@gmail.com")
+        wait.until(EC.visibility_of_element_located((
+            By.CSS_SELECTOR, "body > nav > div > a.gmail-nav__nav-link.gmail-nav__nav-link__sign-in"))).click()
+        wait.until(EC.visibility_of_element_located((
+            By.CSS_SELECTOR, "#identifierId"))).send_keys("test_user2@gmail.com")
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#identifierNext > content > span"))).click()
 
 
