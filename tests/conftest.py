@@ -27,7 +27,7 @@ def driver_safari():
 
 
 # Fixture for autotests which are running in app
-@pytest.fixture(scope='module', autouse=False)
+@pytest.fixture(scope='module', autouse=True)
 def driver_app():
     app = os.path.join(os.path.dirname(__file__),
                        '/Users/ykon/Library/Developer/Xcode/DerivedData/UICatalog-cbyqlluuqdtgqvgfqcnluofyvutg/'
