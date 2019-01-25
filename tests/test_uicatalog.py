@@ -1,16 +1,16 @@
 """
 Practicing automating different common mobile interactions
 """
+from page_objects.home_page import HomePage
 
 
 def test_send_keys(driver_app):
-    driver_app.find_element_by_accessibility_id("Alert Views").click()
-    driver_app.find_element_by_xpath("//*[@value='Text Entry']").click()
-    text_field = driver_app.find_element_by_class_name("XCUIElementTypeOther")
-    text_field.send_keys('Hello')
-    driver_app.find_element_by_name("OK").click()
+    page = HomePage(driver_app)
+    page.open_alert_page()
+    page.open_text_entry()
+    page.submit_text_entry('SmartAss')
 
-    assert text_field.is_displayed() is not True, "Text field is still displayed after submit"
+    assert page.is_text_field_displayed() is not True, "Text field pop up is still displayed after submit"
     driver_app.back()
 
 
