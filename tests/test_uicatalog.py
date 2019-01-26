@@ -58,4 +58,4 @@ def test_picker_wheel(driver_app):
 
     page.set_blue_wheel_value("45")
     assert page.get_blue_wheel_value() == "45", "Incorrect blue wheel value"
-    driver_app.back()
+    page.go_back()
