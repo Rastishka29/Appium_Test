@@ -1,7 +1,7 @@
 from appium.webdriver.common.mobileby import MobileBy
 
 
-class BaseLocators(object):
+class HomePageLocators(object):
     alert_views = (MobileBy.ACCESSIBILITY_ID, "Alert Views")
     text_entry = (MobileBy.XPATH, "//*[@value='Text Entry']")
     text_field = (MobileBy.CLASS_NAME, "XCUIElementTypeOther")
@@ -9,3 +9,4 @@ class BaseLocators(object):
     toolbars = (MobileBy.NAME, "Toolbars")
     action_sheets = (MobileBy.NAME, "Action Sheets")
     web_view = (MobileBy.NAME, "Web View")
+    picker_view = (MobileBy.ACCESSIBILITY_ID, "Picker View")

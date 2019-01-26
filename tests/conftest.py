@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 # Fixture for autotests which are running in browser Safari
-@pytest.fixture(scope='module', autouse=True)
+@pytest.fixture(scope='module', autouse=False)
 def driver_safari():
     # Set up appium
     driver = webdriver.Remote(
