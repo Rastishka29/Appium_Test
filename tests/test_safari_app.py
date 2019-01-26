@@ -2,19 +2,11 @@
 Practicing automation tests using Safari browser
 """
 
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from page_objects.browser_page import BrowserPage
 
 
 def test_open_google(driver_safari):
-    wait = WebDriverWait(driver_safari, 10)
-
-    driver_safari.get("https://gmail.com")
-    # wait.until(EC.visibility_of_element_located((
-    #     By.CSS_SELECTOR, "body > nav > div > a.gmail-nav__nav-link.gmail-nav__nav-link__sign-in"))).click()
-    wait.until(EC.visibility_of_element_located((
-        By.CSS_SELECTOR, "#identifierId"))).send_keys("test_user2@gmail.com")
-    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#identifierNext > content > span"))).click()
-    actual = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.GQ8Pzc'))).text
-    assert actual == "Couldn't find your Google Account"
+    page = BrowserPage(driver_safari)
+    page.open_page("https://gmail.com")
+    page.enter_email_and_submit("test_user2@gmail.com")
+    assert page.get_error_message() == "Couldn't find your Google Account"
