@@ -1,5 +1,5 @@
 from appium.webdriver.common.mobileby import MobileBy
-from locators.base_locators import HomePageLocators
+from locators.iOS.home_page_locators import HomePageLocators
 
 
 class PickerWheelLocators(HomePageLocators):

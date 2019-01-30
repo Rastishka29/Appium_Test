@@ -8,7 +8,7 @@ import os
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-# Fixture for autotests which are running in browser Safari
+# Fixture for autotests for browser Safari in iOS
 @pytest.fixture(scope='module', autouse=False)
 def driver_safari():
     # Set up appium
@@ -25,10 +25,26 @@ def driver_safari():
     yield driver
     driver.quit()
 
-
-# Fixture for autotests which are running in app
+# Fixture for autotests for Chrome in Android
 @pytest.fixture(scope='module', autouse=False)
-def driver_app():
+def driver_chrome():
+    # Set up appium
+    driver = webdriver.Remote(
+        command_executor='http://127.0.0.1:4723/wd/hub',
+        desired_capabilities={
+            'browserName': 'Chrome',
+            'platformName': 'Android',
+            'platformVersion': '8.1',
+            'deviceName': 'Pixel 2',
+            #'noReset': True
+        })
+    yield driver
+    driver.quit()
+
+
+# Fixture for autotests which are running in app for iOS
+@pytest.fixture(scope='module', autouse=False)
+def driver_ios_app():
     app = os.path.join(os.path.dirname(__file__),
                        '/Users/ykon/Library/Developer/Xcode/DerivedData/UICatalog-cbyqlluuqdtgqvgfqcnluofyvutg/'
                        'Build/Products/Debug-iphonesimulator/UICatalog.app')
@@ -47,6 +63,23 @@ def driver_app():
     yield driver
     driver.quit()
 
+
+# Fixture for autotests which are running in app for Android
+@pytest.fixture(scope='module', autouse=False)
+def driver_android_app():
+    app = os.path.join(os.path.dirname(__file__),
+                       '/Users/ykon/Education/Appium/Appium_Test_Project/ApiDemos-debug.apk')
+    app = os.path.abspath(app)
+    driver = webdriver.Remote(
+        command_executor='http://127.0.0.1:4723/wd/hub',
+        desired_capabilities={
+            'app': app,
+            'platformName': 'Android',
+            'platformVersion': '8.1',
+            'deviceName': 'Pixel 2'
+        })
+    yield driver
+    driver.quit()
 
 # Below is fixture with capabilities for running tests in cloud using saucelabs tool for mobile browser.
 # However, I will not use it right now for my tests because I have only trial subscription for saucelabs and tests

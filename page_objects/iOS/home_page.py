@@ -1,5 +1,5 @@
 from page_objects.base_page import BasePage
-from locators.base_locators import HomePageLocators
+from locators.iOS.home_page_locators import HomePageLocators
 
 
 class HomePage(BasePage):

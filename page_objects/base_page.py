@@ -1,7 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from locators.siri_locators import SiriLocators
+from locators.iOS.siri_locators import SiriLocators
 
 
 class BasePage(object):

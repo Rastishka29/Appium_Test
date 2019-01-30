@@ -1,4 +1,4 @@
-from locators.stepper_locators import SteppersLocators
+from locators.iOS.stepper_locators import SteppersLocators
 from page_objects.base_page import BasePage
 
 

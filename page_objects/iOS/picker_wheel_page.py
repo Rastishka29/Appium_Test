@@ -1,4 +1,4 @@
-from locators.picker_wheel_locators import PickerWheelLocators
+from locators.iOS.picker_wheel_locators import PickerWheelLocators
 from page_objects.base_page import BasePage
 
 
