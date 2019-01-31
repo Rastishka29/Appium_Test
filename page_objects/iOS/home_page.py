@@ -15,15 +15,15 @@ class HomePage(BasePage):
         return self.is_elem_displayed(*HomePageLocators.text_field)
 
     def scroll_and_open_toolbars(self):
-        self.scroll_by_name("Toolbars")
+        self.scroll_by_name_ios("Toolbars")
         self.find_element(*HomePageLocators.toolbars).click()
 
     def scroll_up_and_open_action_sheets(self):
-        self.scroll_by_direction("up")
+        self.scroll_by_direction_ios("up")
         self.find_element(*HomePageLocators.action_sheets).click()
 
     def scroll_down_and_open_web_view(self):
-        self.scroll_by_direction("down")
+        self.scroll_by_direction_ios("down")
         self.find_element(*HomePageLocators.web_view).click()
 
     def is_toolbars_title_displayed(self):

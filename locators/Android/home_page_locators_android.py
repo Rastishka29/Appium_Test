@@ -11,3 +11,7 @@ class HomePageLocatorsAndroid(object):
     tomorrow_day = (MobileBy.XPATH, tomorrow_xpath)
     ok_btn = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
     new_date = (MobileBy.XPATH, "//android.widget.TextView[@index='0']")
+    web_view = (MobileBy.XPATH, "//android.widget.TextView[@text='WebView']")
+    web_view_title = (MobileBy.XPATH, "//android.widget.TextView[@text='Views/WebView']")
+    expandable_lists = (MobileBy.XPATH, "//android.widget.TextView[@text='Expandable Lists']")
+    menu_options = (MobileBy.CLASS_NAME, "android.widget.TextView")
